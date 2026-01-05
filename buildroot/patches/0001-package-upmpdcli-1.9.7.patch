@@ -1,0 +1,40 @@
+diff -Naur buildroot-2025.02.9-org/package/upmpdcli/upmpdcli.hash buildroot-2025.02.9/package/upmpdcli/upmpdcli.hash
+--- buildroot-2025.02.9-org/package/upmpdcli/upmpdcli.hash	2025-12-11 09:20:34.000000000 +0100
++++ buildroot-2025.02.9/package/upmpdcli/upmpdcli.hash	2025-12-14 10:32:50.748854015 +0100
+@@ -1,5 +1,5 @@
+-# From http://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.5.12.tar.gz.sha256:
+-sha256  1d7b6ab360c2549a7e3eff4f261471761dd837e18327a3ca29de1981c090ff3b  upmpdcli-1.5.12.tar.gz
++# From https://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.9.7.tar.gz.sha256
++sha256  7b10cc35cae9377c542aba3983dfd39e34b4dd5fff64512f54feb87e64cf8609  upmpdcli-1.9.7.tar.gz
+ 
+ # Hash for license file:
+ sha256  dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551  COPYING
+diff -Naur buildroot-2025.02.9-org/package/upmpdcli/upmpdcli.mk buildroot-2025.02.9/package/upmpdcli/upmpdcli.mk
+--- buildroot-2025.02.9-org/package/upmpdcli/upmpdcli.mk	2025-12-11 09:20:34.000000000 +0100
++++ buildroot-2025.02.9/package/upmpdcli/upmpdcli.mk	2025-12-14 10:33:33.085009566 +0100
+@@ -4,17 +4,12 @@
+ #
+ ################################################################################
+ 
+-UPMPDCLI_VERSION = 1.5.12
+-UPMPDCLI_SITE = http://www.lesbonscomptes.com/upmpdcli/downloads
++UPMPDCLI_VERSION = 1.9.7
++UPMPDCLI_SITE = https://www.lesbonscomptes.com/upmpdcli/downloads
+ UPMPDCLI_LICENSE = LGPL-2.1+
+ UPMPDCLI_LICENSE_FILES = COPYING
+ UPMPDCLI_DEPENDENCIES = host-pkgconf libmpdclient libupnpp libmicrohttpd jsoncpp
+ 
+-# Disable spotify plugin which requires dlfcn.h
+-ifeq ($(BR2_STATIC_LIBS),y)
+-UPMPDCLI_CONF_OPTS += --disable-spotify
+-endif
+-
+ # Upmpdcli only runs if user upmpdcli exists
+ define UPMPDCLI_USERS
+ 	upmpdcli -1 upmpdcli -1 * - - audio Upmpdcli MPD UPnP Renderer Front-End
+@@ -35,4 +30,4 @@
+ 
+ UPMPDCLI_POST_INSTALL_TARGET_HOOKS += UPMPDCLI_INSTALL_CONF_FILE
+ 
+-$(eval $(autotools-package))
++$(eval $(meson-package))

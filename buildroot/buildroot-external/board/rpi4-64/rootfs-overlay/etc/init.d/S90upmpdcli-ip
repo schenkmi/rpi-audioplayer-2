@@ -1,0 +1,39 @@
+#! /bin/sh
+#
+# Insert IP addr into /etc/upmpdcli.conf
+#
+
+UPMDDCLI_CONF="/etc/upmpdcli.conf"
+
+IFACE_NAME=$(ip --brief link | awk '{print $1}' | grep -E '^e.*' | tr -d '\n')
+if [ -z "$IFACE_NAME" ]; then
+  IFACE_NAME=$(ip --brief link | awk '{print $1}' | grep -E '^w.*' | tr -d '\n')
+fi
+
+COUNTER=0
+# wait max 20 seconds
+while [ $COUNTER -lt 20 -a -z "$(ip addr show $IFACE_NAME | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)" ]; do
+  echo "The network is not up yet [$COUNTER] seconds" | logger -t "S90upmpdcli-ip"
+  sleep 1
+  let COUNTER=COUNTER+1
+done
+
+ip addr 2>&1 | logger -t "S90upmpdcli-ip"
+
+IP_ADDR=$(ip addr show $IFACE_NAME | grep 'inet ' | awk '{print $2}' | cut -d/ -f1)
+
+UPNP_NAME="UPMPDCLI-RPI4-$IP_ADDR"
+
+echo "UPNP_NAME: $UPNP_NAME" | logger -t "S90upmpdcli-ip"
+
+case "$1" in
+	start)
+        sed -i "s|.*\bfriendlyname\b.*|friendlyname = $UPNP_NAME|" $UPMDDCLI_CONF
+        sed -i "s|.*\bohproductroom\b.*|ohproductroom = $UPNP_NAME|" $UPMDDCLI_CONF
+        true;;
+    stop|restart|reload)
+        true;;
+	*)
+		echo "Usage: $0 {start|stop|restart|reload}"
+		exit 1
+esac
