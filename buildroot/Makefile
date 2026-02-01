@@ -6,7 +6,7 @@ NPROC:=$(shell nproc)
 ########################################
 # BUILDROOT
 ########################################
-BUILDROOT_VERSION=2025.11
+BUILDROOT_VERSION=2025.11.1
 BUILDROOT_XZ=buildroot-$(BUILDROOT_VERSION).tar.xz
 BUILDROOT_SRC_DIR=$(BUILDROOT_DIR)/buildroot-$(BUILDROOT_VERSION)
 BUILDROOT_INSTALL_DIR=$(BUILDROOT_SRC_DIR)/output
