@@ -1,6 +1,13 @@
 # rpi-audioplayer-2
 Buildroot based UPnP/Openhome MediaPlayer for Raspberry Pi 64Bit using mpd and upmpdcli.
 
+# Hardware
+
+## KiCad SPDIF hats for RPI
+
+- https://github.com/schenkmi/electronic-projects/tree/main/rpi-hat-spdif/kicad/V9/rpi-hat-spdif
+- https://github.com/schenkmi/electronic-projects/tree/main/rpi-hat-spdif/kicad/V9-min/rpi-hat-spdif
+
 # Building
 
 ## RPI3
