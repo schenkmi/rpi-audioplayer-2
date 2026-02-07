@@ -1,6 +1,13 @@
 # rpi-audioplayer-2
 Buildroot based UPnP/Openhome MediaPlayer for Raspberry Pi 64Bit using mpd and upmpdcli.
 
+# Hardware
+
+## KiCad SPDIF hats for RPI
+
+- https://github.com/schenkmi/electronic-projects/tree/main/rpi-hat-spdif/kicad/V9/rpi-hat-spdif
+- https://github.com/schenkmi/electronic-projects/tree/main/rpi-hat-spdif/kicad/V9-min/rpi-hat-spdif
+
 # Building
 
 ## RPI3
@@ -25,6 +32,12 @@ sudo dd if=RPI3_64-sdcard.img of=/dev/sdX bs=1M conv=fdatasync status=progress
 
 # Releases
 
+## 2026.02.01
+
+Buildroot: 2025.11.1
+upmpdcli:  1.9.7
+mpd:       0.24.6
+
 ## 2025.12.19 
 
 Buildroot: 2025.11
@@ -43,7 +56,7 @@ sudo picocom -b 115200 /dev/ttyUSB0
 
 ## Tag release
 ```
-git tag -a release_20251219 -m "Release 2025.12.19 Buildroot 2025.11"
+git tag -a release_20260201 -m "Release 2026.02.01 Buildroot 2025.11.1"
 git push --tags
 ```
 
