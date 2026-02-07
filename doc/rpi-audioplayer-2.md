@@ -11,18 +11,18 @@ picocom -b 115200 /dev/ttyUSB0
 ### RPI3
 ```
 cd /work/rpi-audioplayer-2/buildroot
-make PLATFORM=RPI3
+make PLATFORM=RPI3_64
 ```
 
 ### RPI4
 ```
 cd /work/rpi-audioplayer-2/buildroot
-make PLATFORM=RPI4
+make PLATFORM=RPI4_64
 ```
 
 ## Reconfig
 ```
-make PLATFORM=RPI4 re-config
+make PLATFORM=RPI4_64 re-config
 ```
 
 
