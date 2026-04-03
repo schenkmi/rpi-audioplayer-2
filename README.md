@@ -32,6 +32,12 @@ sudo dd if=RPI3_64-sdcard.img of=/dev/sdX bs=1M conv=fdatasync status=progress
 
 # Releases
 
+## 2026.04.03
+
+Buildroot: 2026.02
+upmpdcli:  1.9.15
+mpd:       0.24.8
+
 ## 2026.02.01
 
 Buildroot: 2025.11.1
@@ -55,8 +61,8 @@ sudo picocom -b 115200 /dev/ttyUSB0
 ```
 
 ## Tag release
-```
-git tag -a release_20260201 -m "Release 2026.02.01 Buildroot 2025.11.1"
+```bash
+git tag -a release_20260403 -m "Release 2026.04.03 Buildroot 2026.02"
 git push --tags
 ```
 

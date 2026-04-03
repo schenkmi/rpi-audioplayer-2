@@ -6,15 +6,13 @@ NPROC:=$(shell nproc)
 ########################################
 # BUILDROOT
 ########################################
-BUILDROOT_VERSION=2025.11.1
+BUILDROOT_VERSION=2026.02
 BUILDROOT_XZ=buildroot-$(BUILDROOT_VERSION).tar.xz
 BUILDROOT_SRC_DIR=$(BUILDROOT_DIR)/buildroot-$(BUILDROOT_VERSION)
 BUILDROOT_INSTALL_DIR=$(BUILDROOT_SRC_DIR)/output
 LOCAL_NAME=$(BUILDROOT_XZ)
 BUILDROOT_EXTERNAL=../buildroot-external
-BUILDROOT_PATCH_LIST=../patches/0001-package-libnpupnp-6.2.3.patch \
-                     ../patches/0001-package-libupnpp-1.0.3.patch \
-                     ../patches/0001-package-upmpdcli-1.9.7.patch
+BUILDROOT_PATCH_LIST=../patches/0001-package-upmpdcli-1.9.15.patch
 
 ifneq (,$(filter $(PLATFORM),RPI3_64))
   BUILDROOTCFG=rpi3_64_defconfig

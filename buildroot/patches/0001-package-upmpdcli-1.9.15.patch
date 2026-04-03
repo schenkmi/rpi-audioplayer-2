@@ -1,0 +1,23 @@
+diff -Naur buildroot-2026.02.org/package/upmpdcli/upmpdcli.hash buildroot-2026.02/package/upmpdcli/upmpdcli.hash
+--- buildroot-2026.02.org/package/upmpdcli/upmpdcli.hash	2026-04-03 11:19:55.260079979 +0200
++++ buildroot-2026.02/package/upmpdcli/upmpdcli.hash	2026-04-03 11:23:37.083101537 +0200
+@@ -1,5 +1,5 @@
+-# From https://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.9.7.tar.gz.sha256
+-sha256  7b10cc35cae9377c542aba3983dfd39e34b4dd5fff64512f54feb87e64cf8609  upmpdcli-1.9.7.tar.gz
++# From https://www.lesbonscomptes.com/upmpdcli/downloads/upmpdcli-1.9.15.tar.gz.sha256
++sha256  ae571b5be9a71284ba31b59cebae799af394b35f8267fa7d3840d50befd5e6e6  upmpdcli-1.9.15.tar.gz
+ 
+ # Hash for license file:
+ sha256  dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551  COPYING
+diff -Naur buildroot-2026.02.org/package/upmpdcli/upmpdcli.mk buildroot-2026.02/package/upmpdcli/upmpdcli.mk
+--- buildroot-2026.02.org/package/upmpdcli/upmpdcli.mk	2026-04-03 11:19:55.260079979 +0200
++++ buildroot-2026.02/package/upmpdcli/upmpdcli.mk	2026-04-03 11:22:23.495888965 +0200
+@@ -4,7 +4,7 @@
+ #
+ ################################################################################
+ 
+-UPMPDCLI_VERSION = 1.9.7
++UPMPDCLI_VERSION = 1.9.15
+ UPMPDCLI_SITE = https://www.lesbonscomptes.com/upmpdcli/downloads
+ UPMPDCLI_LICENSE = LGPL-2.1+
+ UPMPDCLI_LICENSE_FILES = COPYING
