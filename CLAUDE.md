@@ -7,8 +7,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Buildroot-based UPnP/Openhome MediaPlayer for Raspberry Pi 64-bit using mpd and upmpdcli. The project produces bootable SD card images for RPI3 and RPI4.
 
 **Core packages:**
-- mpd 0.24.6 (Music Player Daemon)
-- upmpdcli 1.9.7 (UPnP renderer backend)
+- mpd 0.24.8 (Music Player Daemon)
+- upmpdcli 1.9.15 (UPnP renderer backend)
 - Custom ohupnpplayer (OpenHome/UPnP/DLNA player with Platinum SDK)
 
 ## Build Commands
@@ -73,7 +73,7 @@ valgrind --leak-check=full ./.build/ohupnpplayer
 
 **buildroot/** - Main build system
 - `Makefile` - Orchestrates buildroot extraction, patching, and building (NPROC jobs)
-- `buildroot-2025.11.1.tar.xz` - Buildroot source tarball
+- `buildroot-2026.02.tar.xz` - Buildroot source tarball
 - `buildroot-external/` - External buildroot tree (name: AP2)
   - `configs/` - defconfig files (rpi3_64_defconfig, rpi4_64_defconfig)
   - `board/rpi3-64/` and `board/rpi4-64/` - Board-specific:
@@ -81,7 +81,7 @@ valgrind --leak-check=full ./.build/ohupnpplayer
     - `genimage.cfg.in` - Disk image template
     - `post-image.sh` - Final image generation (adds device tree overlays for HiFiBerry Digi+ Pro)
     - `rootfs-overlay/etc/` - Runtime configuration files
-- `patches/` - Buildroot package patches (libnpupnp, libupnpp, upmpdcli)
+- `patches/` - Buildroot package patches (upmpdcli)
 
 **ohupnpplayer/** - Custom C++ UPnP/Openhome player application
 - `player/` - Main application
@@ -199,6 +199,6 @@ vi /tmp/boot/config.txt  # Edit device tree overlays
 ## Release Tagging
 
 ```bash
-git tag -a release_20260201 -m "Release 2026.02.01 Buildroot 2025.11.1"
+git tag -a release_20260403 -m "Release 2026.04.03 Buildroot 2026.02"
 git push --tags
 ```
